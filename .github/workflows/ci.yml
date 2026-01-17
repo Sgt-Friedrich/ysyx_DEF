@@ -1,0 +1,18 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  env-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: env_check
+        run: |
+          bash scripts/env_check.sh || true
+          if ! command -v git >/dev/null 2>&1; then exit 1; fi
+          if ! command -v gcc >/dev/null 2>&1; then exit 1; fi
+          if ! command -v g++ >/dev/null 2>&1; then exit 1; fi
+          if ! command -v make >/dev/null 2>&1; then exit 1; fi

@@ -1,0 +1,9 @@
+*.vcd
+*.fst
+*.log
+*.rpt
+*.out
+build/
+obj_dir/
+*.zip
+defense_package.zip
